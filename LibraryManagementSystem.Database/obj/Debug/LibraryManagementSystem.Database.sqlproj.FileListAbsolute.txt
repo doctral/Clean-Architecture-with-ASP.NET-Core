@@ -1,0 +1,5 @@
+D:\GitProjects\Clean-Architecture-with-ASP.NET-Core\LibraryManagementSystem.Database\obj\Debug\LibraryManagementSystem.Database.dll
+D:\GitProjects\Clean-Architecture-with-ASP.NET-Core\LibraryManagementSystem.Database\obj\Debug\LibraryManagementSystem.Database.pdb
+D:\GitProjects\Clean-Architecture-with-ASP.NET-Core\LibraryManagementSystem.Database\bin\Debug\LibraryManagementSystem.Database.dacpac
+D:\GitProjects\Clean-Architecture-with-ASP.NET-Core\LibraryManagementSystem.Database\bin\Debug\LibraryManagementSystem.Database.dll
+D:\GitProjects\Clean-Architecture-with-ASP.NET-Core\LibraryManagementSystem.Database\bin\Debug\LibraryManagementSystem.Database.pdb

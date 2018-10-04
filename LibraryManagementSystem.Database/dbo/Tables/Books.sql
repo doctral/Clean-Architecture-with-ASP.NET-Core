@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Books]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(50) NOT NULL,
+	LibraryId INT NOT NULL,
+	CONSTRAINT FK_Book_Library FOREIGN KEY (LibraryId) REFERENCES [dbo].[Libraries](Id)
+)
