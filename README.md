@@ -1,4 +1,45 @@
-# RESTful-API-With-ASP.NET-CORE
+# Implementing Clean Architecture using ASP.NET Core and Angular 6
 
 ## Useful Resources
 1. [Remove Files from Git After Adding/Updating .Gitignore](https://eric.blog/2014/05/11/remove-files-from-git-addingupdating-gitignore/)
+2. [Edit Visual Studio Templates for new C# Class/Interface](https://stackoverflow.com/questions/2072687/how-do-i-edit-the-visual-studio-templates-for-new-c-sharp-class-interface)
+3. [Get SQL Server Connection String from Visual Studio](https://www.codeproject.com/Tips/592675/Get-SQL-Server-Database-Connection-String-Easily-f) 
+
+## Clean Architecture
+
+### Database Project
+1. Database table sql files
+2. Database seeding sql files
+3. Post-deployment sql files
+4. Publish database project to SQL server
+
+### Domain Project
+1. Audit: general classes for shared Created/Modified/Deleted Date/Id
+2. Entity classes
+
+### Persistence Project
+1. [ASP.NET EntityFramework Core](https://docs.microsoft.com/en-us/ef/core/)
+2. Dependencies: Microsoft.EntityFrameworkCore & Microsoft.EntityFrameworkCore.SqlServer
+3. Create Entity Config for each table
+4. Implement DbContext, which is a combination of Unit of Work and Repository patterns 
+5. Implement Queries and Commands
+
+### Application Project
+1. Interface of Queries and Commands
+    1. Command: does something, should modify state, should not return a value
+    2. Query: answers a question, should not modify state, should return a state
+2. Dtos: CreateDto, ModifyDto, etc
+3. Manager Interface and Implementation
+
+### RESTful Api Project
+
+### Test Concepts
+1. Unit of Work: Everything that happens from invoking a public method to it returning the results after it's finished. It's the work done along the path you see the debugger take through your code.
+2. Unit Test: Code that invokes a unit of work within the confines of a project layer while faking external dependencies and validates an assumption about one specific scenario.
+3. Integration Test: Code that invokes a unit of work that crosses project boundaries, uses actual external dependencies, and/or validates many different aspects about the code under test. 
+4. Fake: a replacement of a real dependency with something the test specifies. 
+5. Requirements: 
+    i). Read code >> Write Code
+    ii). Consistent, meaningful names
+    iii). Clear and simple tests
+    iv). Precise test scenarios: test one expectation per test; Multiple asserts on same object can be OK; Test should point to precise location of problem.  
