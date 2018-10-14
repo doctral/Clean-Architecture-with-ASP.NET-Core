@@ -21,6 +21,7 @@ namespace LibraryManagementSystem.Api.Libraries
 			_libraryManager = libraryManager;
 		}
 
+		[HttpGet]
 		public async Task<IActionResult> GetLibrariesAsync()
 		{
 			var results =await _libraryManager.GetLibrariesAsync();
