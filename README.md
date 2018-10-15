@@ -13,6 +13,10 @@
 3. Post-deployment sql files
 4. Publish database project to SQL server
 
+### IoC Project
+1. [Autofac](https://autofaccn.readthedocs.io/en/latest/getting-started/index.html) is an IoC container which provides base class for user-defined modules. With Autofac, we can craete a **ContainerBuilder** and register **components** with it.  
+2. [System.Reflection.Assembly](https://docs.microsoft.com/en-us/dotnet/api/system.reflection?view=netframework-4.7.2) can be used to load **Assemblies**.
+
 ### Domain Project
 1. Audit: general classes for shared Created/Modified/Deleted Date/Id
 2. Entity classes
@@ -32,6 +36,9 @@
 3. Manager Interface and Implementation
 
 ### RESTful Api Project
+1. Start and Program: Implement Config and ConfigService
+2. Config CORS
+3. Follow RESTful principles
 
 ### Test Concepts
 1. Unit of Work: Everything that happens from invoking a public method to it returning the results after it's finished. It's the work done along the path you see the debugger take through your code.
