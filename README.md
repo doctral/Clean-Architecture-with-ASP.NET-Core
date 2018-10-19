@@ -4,6 +4,7 @@
 1. [Remove Files from Git After Adding/Updating .Gitignore](https://eric.blog/2014/05/11/remove-files-from-git-addingupdating-gitignore/)
 2. [Edit Visual Studio Templates for new C# Class/Interface](https://stackoverflow.com/questions/2072687/how-do-i-edit-the-visual-studio-templates-for-new-c-sharp-class-interface)
 3. [Get SQL Server Connection String from Visual Studio](https://www.codeproject.com/Tips/592675/Get-SQL-Server-Database-Connection-String-Easily-f) 
+4. [Unit Testing C# with NUnit and .NET Core](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit)
 
 ## Clean Architecture
 
@@ -42,10 +43,20 @@
 
 ### Test Concepts
 1. Unit of Work: Everything that happens from invoking a public method to it returning the results after it's finished. It's the work done along the path you see the debugger take through your code.
-2. Unit Test: Code that invokes a unit of work within the confines of a project layer while faking external dependencies and validates an assumption about one specific scenario.
-3. Integration Test: Code that invokes a unit of work that crosses project boundaries, uses actual external dependencies, and/or validates many different aspects about the code under test. 
-4. Fake: a replacement of a real dependency with something the test specifies. 
-5. Requirements: 
+2. Unit Test: Single class, behavior, drive implementation, and fake data access layer
+3. Integration Test: System, interaction, regression catch, test data access layer
+    1. Reinitialize database for every test run
+        1. Create before tests
+        2. Clean up after tests
+    2. Be resilient
+        1. Delete if it already exists
+        2. Close existing connections
+    3. Run migrations
+        1. EF6: MigrateDatabaseToLatestVersion
+        2. EF Core: Database.Migrate()
+4. Test Names: Descriptive test names are very important, particularly as your test suites grow. A good practice is: **[Subject]_[Scenario]_[Result]**, for example: *GrantLoan_WhenCreditLessThan500_ReturnFalse*.        
+5. Fake: a replacement of a real dependency with something the test specifies. 
+6. Requirements: 
     i). Read code >> Write Code
     ii). Consistent, meaningful names
     iii). Clear and simple tests
