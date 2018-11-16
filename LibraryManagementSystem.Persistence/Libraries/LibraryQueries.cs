@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.Persistence.Libraries
@@ -20,6 +20,9 @@ namespace LibraryManagementSystem.Persistence.Libraries
 
 		public async Task<List<LibraryDto>> GetLibrariesAsync() =>
 			await GetQueryableLibraries().AsNoTracking().ToListAsync();
+
+		public async Task<LibraryDto> GetLibraryAsync(Expression<Func<LibraryDto, bool>> predicate)
+			=> await GetQueryableLibraries().Where(predicate).FirstOrDefaultAsync();
 
 		private IQueryable<LibraryDto> GetQueryableLibraries()
 		{
