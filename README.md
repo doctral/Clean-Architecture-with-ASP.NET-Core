@@ -5,6 +5,7 @@
 2. [Edit Visual Studio Templates for new C# Class/Interface](https://stackoverflow.com/questions/2072687/how-do-i-edit-the-visual-studio-templates-for-new-c-sharp-class-interface)
 3. [Get SQL Server Connection String from Visual Studio](https://www.codeproject.com/Tips/592675/Get-SQL-Server-Database-Connection-String-Easily-f) 
 4. [Unit Testing C# with NUnit and .NET Core](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit)
+5. [Covariance Contravariance in C#](http://geekswithblogs.net/abhijeetp/archive/2010/01/10/covariance-and-contravariance-in-c-4.0.aspx)
 
 ## Clean Architecture
 
@@ -28,6 +29,7 @@
 3. Create Entity Config for each table
 4. Implement DbContext, which is a combination of Unit of Work and Repository patterns 
 5. Implement Queries and Commands
+6. To enable buld insert/update/delete, we can use an open-source lib: z.EntityFramework.Plus for entity framework core. 
 
 ### Application Project
 1. Interface of Queries and Commands
@@ -41,7 +43,7 @@
 2. Config CORS
 3. Follow RESTful principles
 
-### Test Concepts
+### Test Project
 1. Unit of Work: Everything that happens from invoking a public method to it returning the results after it's finished. It's the work done along the path you see the debugger take through your code.
 2. Unit Test: Single class, behavior, drive implementation, and fake data access layer
 3. Integration Test: System, interaction, regression catch, test data access layer
@@ -60,4 +62,10 @@
     i). Read code >> Write Code
     ii). Consistent, meaningful names
     iii). Clear and simple tests
-    iv). Precise test scenarios: test one expectation per test; Multiple asserts on same object can be OK; Test should point to precise location of problem.  
+    iv). Precise test scenarios: test one expectation per test; Multiple asserts on same object can be OK; Test should point to precise location of problem.
+
+### Infrastructure Project
+1. Message: can be used to log any type of system messages: error, info, success, warning
+2. ManagerResult: record the operation status with Message
+3. File input & output
+4. Some other functions that can be used to support the application  

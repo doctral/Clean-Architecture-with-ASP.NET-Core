@@ -11,4 +11,8 @@
     <Folder Include="Clients\Dto\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryManagementSystem.Domain\LibraryManagementSystem.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
