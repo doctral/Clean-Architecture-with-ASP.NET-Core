@@ -5,6 +5,9 @@ using Autofac.Extensions.DependencyInjection;
 using LibraryManagementSystem.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -39,6 +42,12 @@ namespace LibraryManagementSystem.Api
 						AllowAnyMethod().
 						AllowCredentials()
 						);
+			});
+			services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+			services.AddScoped<IUrlHelper, UrlHelper>(implementationFactory => 
+			{
+				var actionContext = implementationFactory.GetService<IActionContextAccessor>().ActionContext;
+				return new UrlHelper(actionContext);
 			});
 
 			var builder = new ContainerBuilder();

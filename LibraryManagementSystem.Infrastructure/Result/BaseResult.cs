@@ -14,7 +14,7 @@ namespace LibraryManagementSystem.Infrastructure.Result
 			this.messages.Add(new SystemMessage
 			{
 				Title=message,
-				MessageType=SystemMessageType.Error
+				MessageType=SystemMessageType.Error.ToString()
 			});
 		}
 
@@ -23,7 +23,7 @@ namespace LibraryManagementSystem.Infrastructure.Result
 			this.messages.Add(new SystemMessage
 			{
 				Title = message,
-				MessageType = SystemMessageType.Info
+				MessageType = SystemMessageType.Info.ToString()
 			});
 		}
 
@@ -37,7 +37,7 @@ namespace LibraryManagementSystem.Infrastructure.Result
 			this.messages.Add(new SystemMessage
 			{
 				Title = message,
-				MessageType = SystemMessageType.Success
+				MessageType = SystemMessageType.Success.ToString()
 			});
 		}
 
@@ -46,7 +46,7 @@ namespace LibraryManagementSystem.Infrastructure.Result
 			this.messages.Add(new SystemMessage
 			{
 				Title = message,
-				MessageType = SystemMessageType.Warning
+				MessageType = SystemMessageType.Warning.ToString()
 			});
 		}
 	}

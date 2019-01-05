@@ -7,6 +7,6 @@ namespace LibraryManagementSystem.Infrastructure.Message
 		public Guid id { get; set; } = Guid.NewGuid();
 		public string Title { get; set; }
 		public string Body { get; set; }
-		public SystemMessageType MessageType { get; set; }
+		public string MessageType { get; set; }
 	}
 }

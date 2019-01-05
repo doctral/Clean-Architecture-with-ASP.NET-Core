@@ -7,6 +7,6 @@ namespace LibraryManagementSystem.Infrastructure.Message
 		Guid id { get; set; }
 		string Title { get; set; }
 		string Body { get; set; }
-		SystemMessageType MessageType { get; set; }
+		string MessageType { get; set; }
 	}
 }

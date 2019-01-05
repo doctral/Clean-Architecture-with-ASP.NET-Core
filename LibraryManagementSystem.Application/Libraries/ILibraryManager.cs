@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem.Application.Libraries.Dto;
+﻿using LibraryManagementSystem.Application.Helpers;
+using LibraryManagementSystem.Application.Libraries.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,7 @@ namespace LibraryManagementSystem.Application.Libraries
 {
 	public interface ILibraryManager
 	{
-		Task<List<LibraryDto>> GetLibrariesAsync();
+		PagedList<LibraryDto> GetLibrariesAsync(PageParameters pageParameters);
+		Task<LibraryDto> GetLibraryByIdAsync(int id);
 	}
 }

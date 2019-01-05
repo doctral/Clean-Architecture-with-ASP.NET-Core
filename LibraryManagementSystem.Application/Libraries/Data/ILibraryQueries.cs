@@ -1,4 +1,5 @@
-﻿using LibraryManagementSystem.Application.Libraries.Dto;
+﻿using LibraryManagementSystem.Application.Helpers;
+using LibraryManagementSystem.Application.Libraries.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -9,7 +10,7 @@ namespace LibraryManagementSystem.Application.Libraries.Data
 {
 	public interface ILibraryQueries
 	{
-		Task<List<LibraryDto>> GetLibrariesAsync();
+		PagedList<LibraryDto> GetLibrariesAsync(PageParameters pageParameters);
 		Task<LibraryDto> GetLibraryAsync(Expression<Func<LibraryDto, bool>> predicate);
 	}
 }

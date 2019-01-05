@@ -1,11 +1,11 @@
-# Implementing Clean Architecture using ASP.NET Core and Angular 6
+# Clean Architecture with ASP.NET Core and Angular 6
 
 ## Useful Resources
 1. [Remove Files from Git After Adding/Updating .Gitignore](https://eric.blog/2014/05/11/remove-files-from-git-addingupdating-gitignore/)
 2. [Edit Visual Studio Templates for new C# Class/Interface](https://stackoverflow.com/questions/2072687/how-do-i-edit-the-visual-studio-templates-for-new-c-sharp-class-interface)
 3. [Get SQL Server Connection String from Visual Studio](https://www.codeproject.com/Tips/592675/Get-SQL-Server-Database-Connection-String-Easily-f) 
 4. [Unit Testing C# with NUnit and .NET Core](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-nunit)
-5. [Covariance Contravariance in C#](http://geekswithblogs.net/abhijeetp/archive/2010/01/10/covariance-and-contravariance-in-c-4.0.aspx)
+5. [Covariance & Contravariance in C#](http://geekswithblogs.net/abhijeetp/archive/2010/01/10/covariance-and-contravariance-in-c-4.0.aspx)
 
 ## Clean Architecture
 
@@ -42,6 +42,10 @@
 1. Start and Program: Implement Config and ConfigService
 2. Config CORS
 3. Follow RESTful principles
+4. Other supporting functions using query string: pagination, filtering, and searching
+    1. Paging: helps avoid performance issues
+    2. Filtering: Limits the collection resource, taking into account a predicate
+    3. Searching: Limits the collection resource by passing a search predicate
 
 ### Test Project
 1. Unit of Work: Everything that happens from invoking a public method to it returning the results after it's finished. It's the work done along the path you see the debugger take through your code.
