@@ -110,3 +110,55 @@
 2. Feature Modules: features and functionalities of the app
 3. Shared Modules
 
+## ASP.NET Core: Cross-platform, high-performance, and open-source framework
+
+### Useful Resources
+1. [Official Documentation](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-2.2)
+
+### ASP.NET VS ASP.NET CORE
+1. Cross-platform.
+    1. ASP.NET Core build for Windows, macOS, and Linux
+    2. ASP.NET 4.x build for Windows
+2. Improved performance: ASP.NET Core has better performance than ASP.NET
+3. Side-by-side versioning.
+    1. ASP.NET Core allows multiple versions per machine
+    2. ASP.NET allows only one version per machine
+4. New APIs: ASP.NET Core provides a lightweight, high-performance, and modular HTTP request pipeline that supports multiple data format and content negotiation, as well as model binding & model validation. 
+5. Open source
+
+### .NET VS .NET Core
+1. Use .NET Core for your server application when:
+    1. requires cross-platform
+    2. targeting [microservices](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/index) 
+    3. using Docker containers
+    4. need high-performance and scalable systems
+    5. need side-by-side .NET version per application
+2. Use .NET for server application when:
+    1. currently use .NET framework
+    2. using third-party libraries or packages that not available for .NET Core
+    3. use .NET technologies that are not available for .NET Core
+    4. use a platform that doesn/t support .NET Core
+
+### ASP.NET Core Fundamentals
+1. Overview: 
+    1. Program.cs: create a web server in the Main method as a managed entry point for the app, and invokes CreateWebHostBuilder that create a web host and defines a web server.
+    2. Startup.cs: configure services required by the app and define the request handling pipeline. it contains two methods:
+        1. Configure: used to configure the HTTP request pipeline and defines the middleware called in the request pipeline.
+            1. used to specify how the app responds to HTTP requests
+            2. Adding middleware components to an IApplicationBuilder instance
+        2. ConfigureServices (optional): used to add services to the container including ASP.NET Core MVC, Entity Framework Core, Identity, etc. Called by the web host before the Configure method to configure the app's services.
+    3. Dependency Injection & Inversion of Control: ASP.NET Core provides a native IoC container that supports constructor injection by default. Services are made available through Dependency Injection (DI).
+    4. Middleware: in configure method, middleware can be added to the pipeline by invoking a UseXXX extension method. ASP.NET Core middleware performs asynchronous operations on an HttpContext and then either invokes the next middleware in the pipeline or terminates the request.
+    5. Logging.
+    6. Error handling. 
+2. Extend Startup with startup filters: Use IStartupFilter to configure middleware at the beginning or end of an app's Configure middleware pipeline. Middleware execution order is set by the order of IStartupFilter registrations.
+3. Service lifetimes: Transient, Scoped, Singleton
+    1. Transient: services are created each time they are requested. This lifetime works best for lightweight, stateless services.
+    2. Scoped: Scoped lifetime services are created once per request. When using a scoped service in a middleware, inject the service into the Invoke or InvokeAsync method. Don't inject via constructor injection because it forces the service to behave like a singleton.
+    3. Singleton: Singleton lifetime services are created the first time they're requested (or when ConfigureServices is run and an instance is specified with the service registration). Every subsequent request uses the same instance.
+4. Middleware: Middleware is software that's assembled into an app pipeline to handle requests and responses. Each component chooses whether to pass the request to the next component in the pipeline, and can perform work before and after the next component in the pipeline is invoked.
+    1. Create a middleware pipeline with IApplicationBuilder: The ASP.NET Core request pipeline consists of a sequence of request delegates, each delegate can perform operations before and after the next delegate. A delegate can also decide to not pass a request to the next delegate.
+    2. Middleware Order: The order that middleware components are added in the Startup.Configure method defines the order in which the middleware components are invoked on requests and the reverse order for the response. The order is critical for security, performance, and functionality.
+    3. Build-in middleware: Authentication, CORS, MVC, Session, etc.
+    4. Write Middleware: Middleware is generally encapsulated in a class and exposed with an extension method.
+
